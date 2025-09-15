@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 2 * * *'   # runs daily at 02:00 UTC
+    - cron: '42 8 * * *'   # runs daily at 02:00 UTC
   workflow_dispatch: {}   # allow manual runs for quick testing
 
 jobs:
