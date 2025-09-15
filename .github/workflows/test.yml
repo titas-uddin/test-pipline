@@ -5,23 +5,29 @@ on:
     branches:
       - main
   schedule:
-    - cron: "35 8 * * *"   # runs daily at 02:00 UTC
+    - cron: '0 2 * * *'   # runs daily at 02:00 UTC
+  workflow_dispatch: {}   # allow manual runs for quick testing
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set IMAGE_TAG
+        shell: bash
         run: |
           if [[ "${{ github.event_name }}" == "schedule" ]]; then
             IMAGE_TAG="${{ github.sha }}-${{ github.run_number }}"
           else
             IMAGE_TAG="${{ github.sha }}"
           fi
-          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+          # persist for subsequent steps
+          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
 
       - name: Show IMAGE_TAG
-        run: echo "Final image tag is: $IMAGE_TAG"
+        shell: bash
+        run: |
+          echo "Final image tag is: $IMAGE_TAG"
