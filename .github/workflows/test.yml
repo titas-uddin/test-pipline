@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '42 8 * * *'   # runs daily at 02:00 UTC
-  workflow_dispatch: {}   # allow manual runs for quick testing
 
 jobs:
   test:
