@@ -24,9 +24,9 @@ jobs:
               CLIENT_ID=$(grep ^CLIENT_ID .env.local | cut -d '=' -f2)
               PROJECT_ID=$(grep ^PROJECT_ID .env.local | cut -d '=' -f2)
 
-              echo "NEXTAUTH_SECRET ends with: ${NEXTAUTH_SECRET: -4}"
-              echo "CLIENT_ID ends with: ${CLIENT_ID: -4}"
-              echo "PROJECT_ID ends with: ${PROJECT_ID: -4}"
+              echo "NEXTAUTH_SECRET ends with: ${NEXTAUTH_SECRET: -6}"
+              echo "CLIENT_ID ends with: ${CLIENT_ID: -6}"
+              echo "PROJECT_ID ends with: ${PROJECT_ID: -6}"
 
 
 
