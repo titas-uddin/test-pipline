@@ -17,3 +17,10 @@ jobs:
           echo "CLIENT_ID=${{ secrets.CLIENT_ID }}" >> .env.local
           echo "PROJECT_ID=${{ secrets.PROJECT_ID }}" >> .env.local
           cat .env.local
+
+      - name: Show partial secrets
+        run: |
+              echo "NEXTAUTH_SECRET ends with: ${NEXTAUTH_SECRET: -4}"
+              echo "CLIENT_ID ends with: ${CLIENT_ID: -4}"
+              echo "PROJECT_ID ends with: ${PROJECT_ID: -4}"
+
