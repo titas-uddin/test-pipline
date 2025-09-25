@@ -20,7 +20,8 @@ jobs:
 
       - name: Show partial secrets
         run: |
-              echo "NEXTAUTH_SECRET ends with: ${NEXTAUTH_SECRET: -4}"
-              echo "CLIENT_ID ends with: ${CLIENT_ID: -4}"
-              echo "PROJECT_ID ends with: ${PROJECT_ID: -4}"
+              echo "NEXTAUTH_SECRET ends with: ${{ secrets.NEXTAUTH_SECRET: -4 }}"
+              echo "CLIENT_ID ends with: ${{ secrets.CLIENT_ID: -4 }}"
+              echo "PROJECT_ID ends with: ${{ secrets.PROJECT_ID: -4 }}"
+
 
