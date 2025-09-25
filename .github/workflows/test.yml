@@ -6,7 +6,7 @@ on:
 jobs:
   test-env:
     runs-on: ubuntu-latest
-    environment: prod   # change to `production` to test prod secrets
+    environment: preprod   # change to `production` to test prod secrets
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
